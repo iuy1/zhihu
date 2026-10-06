@@ -171,30 +171,15 @@ Verifier 可以随机选择一个 $\tau$ ，
   例如
   $
   \color{red}{2}
-  \color{none}{+}
-  \color{red}{3}
-  \color{none}{=}
-  \color{red}{5}
+  +\color{red}{3}
+  =\color{red}{5}
   $
 - 无色数字可以和任何颜色相乘，结果是另一个数字的颜色，例如
   $
-  \color{none}{2}
-  \color{none}{\cdot}
-  \color{red}{3}
-  \color{none}{=}
-  \color{red}{6}
-  \color{none}{,\space}
-  \color{none}{3}
-  \color{none}{\cdot}
-  \color{none}{4}
-  \color{none}{=}
-  \color{none}{12}
-  \color{none}{,\space}
-  \color{none}{3}
-  \color{none}{\cdot}
-  \color{purple}{1}
-  \color{none}{=}
-  \color{purple}{3}
+  2\cdot\color{red}{3}
+  =\color{red}{6}
+  ,\space 3\cdot 4=12,\space 3\cdot\color{purple}{1}
+  =\color{purple}{3}
   $
 - 除了无色数字，其他的数字不能进行同色数除法，
   除法的结果是客观存在的，但是我们无法计算它，
@@ -203,10 +188,8 @@ Verifier 可以随机选择一个 $\tau$ ，
   这是一种一般椭圆曲线不具备的性质，例如：
   $
   \color{red}{3}
-  \color{none}{\cdot}
-  \color{blue}{7}
-  \color{none}{=}
-  \color{purple}{21}
+  \cdot\color{blue}{7}
+  =\color{purple}{21}
   $
 - 类似地，无法计算紫色数除以红色或蓝色
 
@@ -223,61 +206,49 @@ Verifier 可以随机选择一个 $\tau$ ，
 Verifier 希望 Prover 能计算
 $
 A(\tau)\cdot \color{red}{1}
-\color{none}{=}
-a_0\color{red}{1}
-\color{none}{+}
-a_1\tau\color{red}{1}
-\color{none}{+}
-a_2\tau^2\color{red}{1}
-\color{none}{=}
-a_0\color{red}{1}
-\color{none}{+}
-a_1\color{red}{\tau}
-\color{none}{+}
-a_2\color{red}{\tau^2}
+=a_0\color{red}{1}
++a_1\tau\color{red}{1}
++a_2\tau^2\color{red}{1}
+=a_0\color{red}{1}
++a_1\color{red}{\tau}
++a_2\color{red}{\tau^2}
 $
 ，Verifier 只需要将
 $
 \color{red}{\tau}
-\color{none}{,}
-\color{red}{\tau^2}
+,\color{red}{\tau^2}
 $
 发送给 Prover，注意同色数字不能计算除法，
 Prover 无法反向计算
 $
 \color{red}{\tau}
-\color{none}{/}
-\color{red}{1}
-\color{none}{=}
-\tau$
+/\color{red}{1}
+=\tau
+$
 
 记
 $
 A(\tau)\cdot \color{red}{1}
-\color{none}{=} \color{red}{A}\color{none}{(\tau)}
+=\color{red}{A}(\tau)
 $ ，Verifier 将
 $
 \color{blue}{\tau}
-\color{none}{,}
-\color{blue}{\tau^2}
+,\color{blue}{\tau^2}
 $
 也发给 Prover，那么 Prover 就可以计算出全部
 $
-\color{red}{A}\color{none}{(\tau)},
-\color{blue}{B}\color{none}{(\tau)},
-\color{red}{C}\color{none}{(\tau)},
-\color{red}{H}\color{none}{(\tau)},
-\color{blue}{T}\color{none}{(\tau)}
-$
+\color{red}{A}(\tau),
+\color{blue}{B}(\tau),
+\color{red}{C}(\tau),
+\color{red}{H}(\tau),
+\color{blue}{T}(\tau)$
 ，Verifier 可以验证
 $
-\color{red}{A}\color{none}{(\tau)}\cdot
-\color{blue}{B}\color{none}{(\tau)} =
-\color{red}{C}\color{none}{(\tau)}\cdot
-\color{blue}{1}\color{none}{+}
-\color{red}{H}\color{none}{(\tau)}\cdot
-\color{blue}{T}\color{none}{(\tau)}
-$
+\color{red}{A}(\tau)\cdot
+\color{blue}{B}(\tau) =
+\color{red}{C}(\tau)\cdot
+\color{blue}{1}+\color{red}{H}(\tau)\cdot
+\color{blue}{T}(\tau)$
 
 这样验证是可靠的吗？让我们试试
 
@@ -285,26 +256,20 @@ $
 比如说 Verifier 随机选择了 $\tau=100$，把
 $
 \color{red}{100}
-\color{none}{,}
-\color{blue}{100}
-\color{none}{,}
-\color{blue}{10000}
+,\color{blue}{100}
+,\color{blue}{10000}
 $
 发给 Prover，Prover 计算出
 $
-\color{red}{A}\color{none}{(\tau)} =
+\color{red}{A}(\tau) =
 \color{red}{-391}
-\color{none}{,}
-\color{blue}{B}\color{none}{(\tau)} =
+,\color{blue}{B}(\tau) =
 \color{blue}{-96}
-\color{none}{,}
-\color{red}{C}\color{none}{(\tau)} =
+,\color{red}{C}(\tau) =
 \color{red}{-1272}
-\color{none}{,}
-\color{red}{H}\color{none}{(\tau)} =
+,\color{red}{H}(\tau) =
 \color{red}{4}
-\color{none}{,}
-\color{blue}{T}\color{none}{(\tau)} =
+,\color{blue}{T}(\tau) =
 \color{blue}{9702}
 $
 
@@ -317,23 +282,20 @@ $
 如果 Prover 实际上不知道 $A,B,C$ 呢，
 比如 Prover 随便取
 $
-\color{red}{C}\color{none}{(\tau)} =
+\color{red}{C}(\tau) =
 10\cdot\color{red}{2}
-\color{none}{,}
-\color{red}{H}\color{none}{(\tau)} =
+,\color{red}{H}(\tau) =
 \color{red}{2}
 $
 然后可以计算
 $
-\color{red}{C}\color{none}{(\tau)}\cdot
-\color{blue}{1}\color{none}{+}
-\color{red}{H}\color{none}{(\tau)}\cdot
-\color{blue}{T}\color{none}{(\tau)}
-=\color{purple}{19424}
+\color{red}{C}(\tau)\cdot
+\color{blue}{1}+\color{red}{H}(\tau)\cdot
+\color{blue}{T}(\tau)=\color{purple}{19424}
 $
 ，Prover 知道
 $
-\color{red}{A}\color{none}{,}\color{blue}{B}
+\color{red}{A},\color{blue}{B}
 $
 相乘应该等于它，虽然 Prover 不能随便选一个
 $\color{red}{A}$
@@ -341,26 +303,21 @@ $\color{red}{A}$
 $\color{blue}{B}$
 ，但可以把 $\color{red}{2}$ 提出来：
 $
-\color{red}{2}\color{none}{\cdot}
-(10*\color{blue}{1}\color{none}{+}
-\color{blue}{T}\color{none}{(\tau)})
+\color{red}{2}\cdot(10*\color{blue}{1}+\color{blue}{T}(\tau))
 $
 ，为了防止 $\color{red}{A}$ 和 $\color{red}{H}$ 一样，
 可以两边随便乘除比如说 $114$，
 声称
 $
-\color{red}{A}\color{none}{(\tau)} =
+\color{red}{A}(\tau) =
 114\cdot\color{red}{2}
-\color{none}{,}
-\color{blue}{B}\color{none}{(\tau)} =
-1/114\cdot(10*\color{blue}{1}\color{none}{+}
-\color{blue}{T}\color{none}{(\tau)})
+,\color{blue}{B}(\tau) =
+1/114\cdot(10*\color{blue}{1}+\color{blue}{T}(\tau))
 $
 
 总之，只让 Prover 计算
 $
-\color{red}{A}\color{none}{,}
-\color{blue}{B}
+\color{red}{A},\color{blue}{B}
 $
 完全无法确定 Prover 到底算了什么
 
@@ -371,73 +328,57 @@ Verifier 可以通过引入两个新的随机数 $\alpha,\beta$
 
 Verifier 将
 $
-\color{red}{\alpha}\color{none}{,}
-\color{blue}{\beta}
+\color{red}{\alpha},\color{blue}{\beta}
 $
 发给 Prover，要求 Prover 计算
 $
-\color{red}{A}\color{none}{(\tau)}+
+\color{red}{A}(\tau)+
 \color{red}{\alpha}
 $
 和
 $
-\color{blue}{B}\color{none}{(\tau)}+
+\color{blue}{B}(\tau)+
 \color{blue}{\beta}
 $
 
 这两部分相乘得到：
 
 $
-(\color{red}{A}\color{none}{(\tau)}\cdot
+(
+\color{red}{A}(\tau)\cdot
 \color{red}{\alpha}
-\color{none}{)\cdot(}
-\color{blue}{B}\color{none}{(\tau)}\cdot
+)
+\cdot
+(
+\color{blue}{B}(\tau)\cdot
 \color{blue}{\beta}
-\color{none}{)}=
-\color{red}{A}\color{none}{(\tau)}\cdot
-\color{blue}{B}\color{none}{(\tau)}
-+
-\color{red}{\alpha}\color{none}{\cdot}
-\color{blue}{B}\color{none}{(\tau)}
-+
-\color{blue}{\beta}\color{none}{\cdot}
-\color{red}{A}\color{none}{(\tau)}
-+
-\color{red}{\alpha}\color{none}{\cdot}
-\color{blue}{\beta}
+)=
+\color{red}{A}(\tau)\cdot
+\color{blue}{B}(\tau)+
+\color{red}{\alpha}\cdot\color{blue}{B}(\tau)+
+\color{blue}{\beta}\cdot\color{red}{A}(\tau)+
+\color{red}{\alpha}\cdot\color{blue}{\beta}
 $
 
 带入 $A, B, C$ 应该满足的关系得到：
 
 $
-(\color{red}{A}\color{none}{(\tau)}\cdot
+(\color{red}{A}(\tau)\cdot
 \color{red}{\alpha}
-\color{none}{)\cdot(}
-\color{blue}{B}\color{none}{(\tau)}\cdot
+)\cdot(\color{blue}{B}(\tau)\cdot
 \color{blue}{\beta}
-\color{none}{)}=
-\color{red}{\alpha}\color{none}{\cdot}
-\color{blue}{\beta}
-\color{none}{+}
-\color{red}{\alpha}\color{none}{\cdot}
-\color{blue}{B}\color{none}{(\tau)}
-+
-\color{blue}{\beta}\color{none}{\cdot}
-\color{red}{A}\color{none}{(\tau)}
-+
-\color{red}{C}\color{none}{(\tau)}
-\cdot\color{blue}{1}
-\color{none}{+}
-\color{red}{H}\color{none}{(\tau)}\cdot
-\color{blue}{T}\color{none}{(\tau)}
-$
+)=
+\color{red}{\alpha}\cdot\color{blue}{\beta}
++\color{red}{\alpha}\cdot\color{blue}{B}(\tau)+
+\color{blue}{\beta}\cdot\color{red}{A}(\tau)+
+\color{red}{C}(\tau)\cdot\color{blue}{1}
++\color{red}{H}(\tau)\cdot
+\color{blue}{T}(\tau)$
 
 把
 $
-\color{red}{\alpha}\color{none}{\cdot}
-\color{blue}{B}\color{none}{(\tau)}=
-\color{blue}{\alpha}\color{none}{\cdot}
-\color{red}{B}\color{none}{(\tau)}
+\color{red}{\alpha}\cdot\color{blue}{B}(\tau)=
+\color{blue}{\alpha}\cdot\color{red}{B}(\tau)
 $
 翻过来后右边的蓝色部分就和电路输入无关了
 
@@ -445,14 +386,9 @@ $
 
 先看
 $
-\color{red}{A}\color{none}{(\tau)}
-\color{none}{\cdot}\color{blue}{\beta}
-\color{none}{+}
-\color{red}{B}\color{none}{(\tau)}
-\color{none}{\cdot}\color{blue}{\alpha}
-\color{none}{+}
-\color{red}{C}\color{none}{(\tau)}
-\cdot\color{blue}{1}
+\color{red}{A}(\tau)\cdot\color{blue}{\beta}
++\color{red}{B}(\tau)\cdot\color{blue}{\alpha}
++\color{red}{C}(\tau)\cdot\color{blue}{1}
 $
 ，回顾
 $$
@@ -474,29 +410,29 @@ Prover 可能会偷偷地在计算时使用不同的 $W$ ，
 $$
 \begin{aligned}
 
-\color{red}{A}\color{none}{(\tau)}\cdot\beta
-&+\color{red}{B}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C}\color{none}{(\tau)} \\
+\color{red}{A}(\tau)\cdot\beta
+&+\color{red}{B}(\tau)\cdot\alpha
++\color{red}{C}(\tau) \\
 
-= \color{red}{A_0}\color{none}{(\tau)}\cdot\beta
-&+\color{red}{B_0}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_0}\color{none}{(\tau)} \\
+= \color{red}{A_0}(\tau)\cdot\beta
+&+\color{red}{B_0}(\tau)\cdot\alpha
++\color{red}{C_0}(\tau) \\
 
-+ (\color{red}{A_1}\color{none}{(\tau)}\cdot\beta
-&+\color{red}{B_1}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_1}\color{none}{(\tau)})\cdot I_1 \\
++ (\color{red}{A_1}(\tau)\cdot\beta
+&+\color{red}{B_1}(\tau)\cdot\alpha
++\color{red}{C_1}(\tau))\cdot I_1 \\
 
-+ (\color{red}{A_2}\color{none}{(\tau)}\cdot\beta
-&+\color{red}{B_2}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_2}\color{none}{(\tau)})\cdot I_2 \\
++ (\color{red}{A_2}(\tau)\cdot\beta
+&+\color{red}{B_2}(\tau)\cdot\alpha
++\color{red}{C_2}(\tau))\cdot I_2 \\
 
-+ (\color{red}{A_3}\color{none}{(\tau)}\cdot\beta
-&+\color{red}{B_3}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_3}\color{none}{(\tau)})\cdot W_1 \\
++ (\color{red}{A_3}(\tau)\cdot\beta
+&+\color{red}{B_3}(\tau)\cdot\alpha
++\color{red}{C_3}(\tau))\cdot W_1 \\
 
-+ (\color{red}{A_4}\color{none}{(\tau)}\cdot\beta
-&+\color{red}{B_4}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_4}\color{none}{(\tau)})\cdot W_2 \\
++ (\color{red}{A_4}(\tau)\cdot\beta
+&+\color{red}{B_4}(\tau)\cdot\alpha
++\color{red}{C_4}(\tau))\cdot W_2 \\
 
 \end{aligned}
 $$
@@ -508,9 +444,9 @@ $\alpha,\beta$ 对 Prover 来说应该是未知的，
 
 Verifier 把
 $
-\color{red}{A_j}\color{none}{(\tau)}\cdot\beta
-+\color{red}{B_j}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_j}\color{none}{(\tau)}
+\color{red}{A_j}(\tau)\cdot\beta
++\color{red}{B_j}(\tau)\cdot\alpha
++\color{red}{C_j}(\tau)
 $
 发给 Prover，Prover 就可以完成这一部分的计算，
 Prover 只需要计算 $W$ 项，
@@ -518,19 +454,18 @@ Prover 只需要计算 $W$ 项，
 
 然后是
 $
-\color{red}{H}\color{none}{(\tau)}\cdot
-\color{blue}{T}\color{none}{(\tau)}
-$
+\color{red}{H}(\tau)\cdot
+\color{blue}{T}(\tau)$
 部分，根据前面的例子我们知道，$T$ 和电路输入无关，
 只和电路的结构有关，既然前面 Verifier 提供的信息已经和电路有关，
 这部分也一起简化一下：
 
 $$
 \begin{aligned}
-&\color{red}{H}\color{none}{(\tau)}\cdot T(\tau) \\
-=&H_0\cdot\color{red}{T}\color{none}{(\tau)}
-+H_1\cdot\tau\cdot\color{red}{T}\color{none}{(\tau)}
-+H_2\cdot\tau^2\cdot\color{red}{T}\color{none}{(\tau)}
+&\color{red}{H}(\tau)\cdot T(\tau) \\
+=&H_0\cdot\color{red}{T}(\tau)
++H_1\cdot\tau\cdot\color{red}{T}(\tau)
++H_2\cdot\tau^2\cdot\color{red}{T}(\tau)
 \end{aligned}
 $$
 
@@ -539,37 +474,31 @@ $$
 ### 例子
 
 还是 $5*3=15,5-3=2$ 的例子，
-Verifier 随机选择 $\tau, \alpha,\beta$，
-把
+Verifier 随机选择 $\tau, \alpha,\beta$，把
 $$
-\color{red}{\tau}\color{none}{,}
-\color{blue}{\tau}\color{none}{,}
-\color{red}{\alpha}\color{none}{,}
-\color{blue}{\beta}\color{none}{,} \\
+\color{red}{\tau},\color{blue}{\tau},
+\color{red}{\alpha},\color{blue}{\beta}, \\
 
-\color{red}{A_j}\color{none}{(\tau)}\cdot\beta
-+\color{red}{B_j}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_j}\color{none}{(\tau)}(j\in{0..4}) \\
+\color{red}{A_j}(\tau)\cdot\beta
++\color{red}{B_j}(\tau)\cdot\alpha
++\color{red}{C_j}(\tau)(j\in{0..4}) \\
 =\{
-(\tau-1)\cdot\color{red}{\alpha}\color{none}{,}
-(-\tau+2)\cdot\color{red}{1}\color{none}{,}
-(\tau-1)\cdot\color{red}{1}\color{none}{,} \\
-(-\tau+2)\cdot\color{red}{\alpha}\color{none}{+}
-(\tau-1)\cdot\color{red}{\beta}\color{none}{,}
-(-2\tau+3)\cdot\color{red}{\beta}\color{none}{,}
-\}, \\
+(\tau-1)\cdot\color{red}{\alpha},
+(-\tau+2)\cdot\color{red}{1},
+(\tau-1)\cdot\color{red}{1}, \\
+(-\tau+2)\cdot\color{red}{\alpha}
++(\tau-1)\cdot\color{red}{\beta},
+(-2\tau+3)\cdot\color{red}{\beta},\}, \\
 
 \{
-\color{red}{T}\color{none}{(\tau)},
-\tau \cdot\color{red}{T}\color{none}{(\tau)},
-\tau^2 \cdot\color{red}{T}\color{none}{(\tau)}
-\} \\
+\color{red}{T}(\tau),
+\tau \cdot\color{red}{T}(\tau),
+\tau^2 \cdot\color{red}{T}(\tau)\} \\
 =\{
-(\tau-1)\cdot(\tau-2)\cdot\color{red}{1}\color{none}{,}
+(\tau-1)\cdot(\tau-2)\cdot\color{red}{1},
 (\tau-1)\cdot(\tau-2)\cdot\tau
-\cdot\color{red}{1}\color{none}{,}
-(\tau-1)\cdot(\tau-2)\cdot\tau^2
-\cdot\color{red}{1}\color{none}{}
+\cdot\color{red}{1},(\tau-1)\cdot(\tau-2)\cdot\tau^2
+\cdot\color{red}{1}
 \}
 $$
 
@@ -577,63 +506,48 @@ $$
 
 $$
 \begin{aligned}
-\color{red}{\pi_A}&\color{none}{=}
--4\color{red}{\tau}\color{none}{+}
-\color{red}{9}\color{none}{+}
-\color{red}{\alpha} \\
+\color{red}{\pi_A}&=-4\color{red}{\tau}
++\color{red}{9}+\color{red}{\alpha} \\
 
-\color{blue}{\pi_B}&\color{none}{=}
--\color{blue}{\tau}\color{none}{+}
-\color{blue}{4}\color{none}{+}
-\color{blue}{\beta} \\
+\color{blue}{\pi_B}&=-\color{blue}{\tau}
++\color{blue}{4}+\color{blue}{\beta} \\
 
-\color{red}{W}&\color{none}{=}
-((-\tau+2)\cdot\color{red}{\alpha}\color{none}{+}
-(\tau-1)\cdot\color{red}{\beta}\color{none}{)}W_1 \\
-&\color{none}{+}
-((-2\tau+3)\cdot\color{red}{\beta}\color{none}{)}W_2 \\
+\color{red}{W}&=((-\tau+2)\cdot\color{red}{\alpha}
++(\tau-1)\cdot\color{red}{\beta})W_1 \\
+&+((-2\tau+3)\cdot\color{red}{\beta})W_2 \\
 &=
-(-5\tau+10)\cdot\color{red}{\alpha}\color{none}{+}
-(-\tau-4)\cdot\color{red}{\beta}\color{none}{} \\
+(-5\tau+10)\cdot\color{red}{\alpha}
++(-\tau-4)\cdot\color{red}{\beta} \\
 
-\color{red}{H}&\color{none}{=}
+\color{red}{H}&=
 4\cdot(\tau-1)\cdot(\tau-2)\cdot\color{red}{1} \\
 
-\color{red}{\pi_C}&\color{none}{=}
-\color{red}{W}\color{none}{+}\color{red}{H}
-\end{aligned}
+\color{red}{\pi_C}&=\color{red}{W}+\color{red}{H}\end{aligned}
 $$
 
 发送证明
 $
 \pi = \{
-\color{red}{\pi_A}\color{none}{,}
-\color{blue}{\pi_B}\color{none}{,}
-\color{red}{\pi_C}\color{none}{}
+\color{red}{\pi_A},\color{blue}{\pi_B},\color{red}{\pi_C}
 \}
 $
 给 Verifier，Verifier 计算
 $$
 \begin{aligned}
-\color{red}{I}&\color{none}{=}
-(\tau-1)\cdot\color{red}{\alpha}\color{none}{+}
-I_1\cdot(-\tau+2)\cdot\color{red}{1}\color{none}{+}
-I_2\cdot(\tau-1)\cdot\color{red}{1}\color{none}{} \\
+\color{red}{I}&=(\tau-1)\cdot\color{red}{\alpha}
++I_1\cdot(-\tau+2)\cdot\color{red}{1}
++I_2\cdot(\tau-1)\cdot\color{red}{1} \\
 &=
-(\tau-1)\cdot\color{red}{\alpha}\color{none}{+}
-(-13\tau+28)\cdot\color{red}{1}\color{none}{}
+(\tau-1)\cdot\color{red}{\alpha}
++(-13\tau+28)\cdot\color{red}{1}
 \end{aligned}
 $$
 验证
 $$
-\color{red}{\pi_A}\color{none}{\cdot}
-\color{blue}{\pi_B}\color{none}{=}
-\color{red}{\alpha}\color{none}{\cdot}
-\color{blue}{\beta}\color{none}{+}
-\color{red}{I}\color{none}{\cdot}
-\color{blue}{1}\color{none}{+}
-\color{red}{\pi_C}\color{none}{\cdot}
-\color{blue}{1}\color{none}{}
+\color{red}{\pi_A}\cdot\color{blue}{\pi_B}
+=\color{red}{\alpha}\cdot\color{blue}{\beta}
++\color{red}{I}\cdot\color{blue}{1}
++\color{red}{\pi_C}\cdot\color{blue}{1}
 $$
 
 在这个例子中，等式两边都等于
@@ -651,10 +565,9 @@ $$
 
 即使 Verifier 不把
 $$
-\color{red}{A_j}\color{none}{(\tau)}\cdot\beta
-+\color{red}{B_j}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_j}\color{none}{(\tau)}
-$$
+\color{red}{A_j}(\tau)\cdot\beta
++\color{red}{B_j}(\tau)\cdot\alpha
++\color{red}{C_j}(\tau)$$
 中关于 $I$ 的部分发给 Prover，
 Prover 也可能因为 $I_j$ 和某些 $W_j$ 拥有完全相同的系数
 能计算出 $\color{red}{I}$
@@ -663,62 +576,51 @@ Prover 也可能因为 $I_j$ 和某些 $W_j$ 拥有完全相同的系数
 就能构造假证明
 $$
 \pi = \{
-\color{red}{\pi_A}\color{none}{=}
-\color{red}{\alpha}\color{none}{,}
-\color{blue}{\pi_B}\color{none}{=}
-\color{blue}{\beta}\color{none}{,}
-\color{red}{\pi_C}\color{none}{=}
--\color{red}{I}\color{none}{\}}
+\color{red}{\pi_A}=\color{red}{\alpha},
+\color{blue}{\pi_B}=\color{blue}{\beta},
+\color{red}{\pi_C}=-\color{red}{I}\}
 $$
 
 我们再引入两个随机数 $\gamma,\delta$ ，
 将
 $$
-\color{red}{A_j}\color{none}{(\tau)}\cdot\beta
-+\color{red}{B_j}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_j}\color{none}{(\tau)}
-$$
+\color{red}{A_j}(\tau)\cdot\beta
++\color{red}{B_j}(\tau)\cdot\alpha
++\color{red}{C_j}(\tau)$$
 分成两部分，$I$ 部分改成
 $$
 \frac{
-\color{red}{A_j}\color{none}{(\tau)}\cdot\beta
-+\color{red}{B_j}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_j}\color{none}{(\tau)}
-}{\gamma}
+\color{red}{A_j}(\tau)\cdot\beta
++\color{red}{B_j}(\tau)\cdot\alpha
++\color{red}{C_j}(\tau)}{\gamma}
 $$
 $W$ 部分改成
 $$
 \frac{
-\color{red}{A_j}\color{none}{(\tau)}\cdot\beta
-+\color{red}{B_j}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_j}\color{none}{(\tau)}
-}{\delta}
+\color{red}{A_j}(\tau)\cdot\beta
++\color{red}{B_j}(\tau)\cdot\alpha
++\color{red}{C_j}(\tau)}{\delta}
 $$
 算出来 $I,W$ 是原来的 $1/\gamma,1/\delta$ ，
 相应的验证过程改为
 $$
-\color{red}{\pi_A}\color{none}{\cdot}
-\color{blue}{\pi_B}\color{none}{=}
-\color{red}{\alpha}\color{none}{\cdot}
-\color{blue}{\beta}\color{none}{+}
-\color{red}{I}\color{none}{\cdot}
-\color{blue}{\gamma}\color{none}{+}
-\color{red}{\pi_C}\color{none}{\cdot}
-\color{blue}{\delta}\color{none}{}
+\color{red}{\pi_A}\cdot\color{blue}{\pi_B}
+=\color{red}{\alpha}\cdot\color{blue}{\beta}
++\color{red}{I}\cdot\color{blue}{\gamma}
++\color{red}{\pi_C}\cdot\color{blue}{\delta}
 $$
 
 $\color{red}{\pi_C}$ 中还包含 $\color{red}{H}$ 部分，
 类似地，把
-$\tau^j\cdot\color{red}{T}\color{none}{(\tau)}$
+$\tau^j\cdot\color{red}{T}(\tau)$
 改成
-$\frac{\tau^j\cdot\color{red}{T}\color{none}{(\tau)}}{\delta}$
+$\frac{\tau^j\cdot\color{red}{T}(\tau)}{\delta}$
 
 Prover 不知道 $1/\delta$ ，
 因此只有使用 Verifier 提供的带有 $1/\delta$ 的项
 才能得到有意义的
 $
-\color{red}{\pi_C}\color{none}{\cdot}
-\color{blue}{\delta}\color{none}{}
+\color{red}{\pi_C}\cdot\color{blue}{\delta}
 $
 
 在 Groth16 最初的论文中， $\gamma$ 是随机生成的，
@@ -743,47 +645,35 @@ $\tau,\alpha,\beta,\gamma,\delta$
 
 并且不同证明的
 $
-\color{red}{A}\color{none}{(\tau)},
-\color{blue}{B}\color{none}{(\tau)}
-$
+\color{red}{A}(\tau),
+\color{blue}{B}(\tau)$
 部分可以被攻击者差分，
 如果两个证明的输入差别很小，
 相应的特征也会泄漏。
 
 假设 Prover 随机生成 $R,T$ ，加到
 $
-\color{red}{\pi_A}\color{none}{,}
-\color{blue}{\pi_B}
+\color{red}{\pi_A},\color{blue}{\pi_B}
 $
 上，那么 Verifier 需要验证的等式变为
 
 $$
 (\color{red}{A}
-\color{none}{(\tau)}
-+\color{red}{\alpha}
-\color{none}{+}\color{red}{R}
-\color{none}{)}\cdot
+(\tau)+\color{red}{\alpha}
++\color{red}{R})\cdot
 
 (\color{blue}{B}
-\color{none}{(\tau)}
-+\color{blue}{\beta}
-\color{none}{+}\color{blue}{T}
-\color{none}{)} \\
-=
-\color{red}{\alpha}\color{none}{\cdot}
-\color{blue}{\beta}\color{none}{+}
-\color{red}{I}\color{none}{\cdot}
-\color{blue}{\gamma}\color{none}{+}
-\color{red}{\pi_C}\color{none}{\cdot}
-\color{blue}{\delta}\color{none}{+}
+(\tau)+\color{blue}{\beta}
++\color{blue}{T}) \\
 
-(\color{red}{A}\color{none}{(\tau)}
-+\color{red}{\beta}\color{none}{)}\cdot
-\color{blue}{R}\color{none}{+}
-(\color{red}{B}\color{none}{(\tau)}
-+\color{red}{\alpha}\color{none}{)}\cdot
-\color{blue}{T}\color{none}{+}
-R\cdot T\cdot\color{purple}{1}\color{none}{}
+=\color{red}{\alpha}\cdot\color{blue}{\beta}
++\color{red}{I}\cdot\color{blue}{\gamma}
++\color{red}{\pi_C}\cdot\color{blue}{\delta}
+
++(\color{red}{A}(\tau)+\color{red}{\beta})\cdot
+\color{blue}{R}+(\color{red}{B}(\tau)
++\color{red}{\alpha})\cdot
+\color{blue}{T}+R\cdot T\cdot\color{purple}{1}
 $$
 
 为了方便把这两个随机数合并到
@@ -797,19 +687,16 @@ $\color{blue}{\delta}$
 
 $R,T$ Prover 不能直接计算的，
 但可以计算
-$\color{red}{R}\color{none}{,}\color{blue}{T}$
+$\color{red}{R},\color{blue}{T}$
 
 等式右部多出来的部分可以重写为
 $$
 (
-(\color{red}{A}\color{none}{(\tau)}
-+\color{red}{\beta}\color{none}{)}\cdot
-r\color{none}{+}
-(\color{red}{B}\color{none}{(\tau)}
-+\color{red}{\alpha}\color{none}{)}\cdot
-t\color{none}{+}
-\color{red}{R}\color{none}{\cdot} t\color{none}{}
-)\cdot\color{blue}{\delta}
+(\color{red}{A}(\tau)+\color{red}{\beta})\cdot r
++(\color{red}{B}(\tau)+\color{red}{\alpha})\cdot t
++\color{red}{R}\cdot t
+)
+\cdot\color{blue}{\delta}
 $$
 
 验证方式和之前一样
@@ -827,30 +714,20 @@ $$ST = \{\alpha, \beta, \gamma, \delta, \tau\}$$
 $$
 CRS = \left\{
 \begin{aligned}
-&
-\color{red}{\alpha}\color{none}{,}
-\color{red}{\beta}\color{none}{,}
-\color{red}{\delta}\color{none}{,}
-\tau^j\cdot\color{red}{1}\color{none}{,}
-\tau^j\cdot\color{red}{T}\color{none}{(\tau)}
-\\ &
-\tfrac{
-\color{red}{A_j}\color{none}{(\tau)}\cdot\beta
-+\color{red}{B_j}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_j}\color{none}{(\tau)}
-}{\gamma}(j\in{0..n}),
-\\ &
-\tfrac{
-\color{red}{A_j}\color{none}{(\tau)}\cdot\beta
-+\color{red}{B_j}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_j}\color{none}{(\tau)}
-}{\delta}(j\in{n+1..n+m}),
-\\ &
-\color{blue}{\beta}\color{none}{,}
-\color{blue}{\gamma}\color{none}{,}
-\color{blue}{\delta}\color{none}{,}
-\tau^j\cdot\color{blue}{1}\color{none}{}
-\\
+&\color{red}{\alpha},\color{red}{\beta},\color{red}{\delta},
+\tau^j\cdot\color{red}{1},\tau^j\cdot\color{red}{T}(\tau)\\
+&\tfrac{
+\color{red}{A_j}(\tau)\cdot\beta
++\color{red}{B_j}(\tau)\cdot\alpha
++\color{red}{C_j}(\tau)}{\gamma}(j\in{0..n}),\\
+
+&\tfrac{
+\color{red}{A_j}(\tau)\cdot\beta
++\color{red}{B_j}(\tau)\cdot\alpha
++\color{red}{C_j}(\tau)}{\delta}(j\in{n+1..n+m}), \\
+
+&\color{blue}{\beta},\color{blue}{\gamma},\color{blue}{\delta},
+\tau^j\cdot\color{blue}{1} \\
 \end{aligned}
 \right\}
 $$
@@ -867,38 +744,26 @@ Prover 不应该知道 trapdoor 的值。
 
 $$
 \begin{aligned}
-\color{red}{\pi_A}&\color{none}{=}
-\color{red}{A}\color{none}{(\tau)}
-+\color{red}{\alpha}
-\color{none}{+}r\cdot\color{red}{\delta} \\
+\color{red}{\pi_A}&=\color{red}{A}(\tau)+\color{red}{\alpha}
++r\cdot\color{red}{\delta} \\
 
-\color{blue}{\pi_B}&\color{none}{=}
-\color{blue}{B}\color{none}{(\tau)}
-+\color{blue}{\beta}
-\color{none}{+}t\cdot\color{blue}{\delta} \\
+\color{blue}{\pi_B}&=\color{blue}{B}(\tau)+\color{blue}{\beta}
++t\cdot\color{blue}{\delta} \\
 
-\color{red}{W}&\color{none}{=}
-\sum_{j=1}^{m}
+\color{red}{W}&=\sum_{j=1}^{m}
 W_j\cdot
 \frac{
-\color{red}{A_{j+n}}\color{none}{(\tau)}\cdot\beta
-+\color{red}{B_{j+n}}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_{j+n}}\color{none}{(\tau)}
-}{\delta} \\
+\color{red}{A_{j+n}}(\tau)\cdot\beta
++\color{red}{B_{j+n}}(\tau)\cdot\alpha
++\color{red}{C_{j+n}}(\tau)}{\delta} \\
 
-\color{red}{H}&\color{none}{=}
-\color{red}{H}\color{none}{(\tau)}\cdot T(\tau) \\
+\color{red}{H}&=\color{red}{H}(\tau)\cdot T(\tau) \\
 
-\color{red}{\pi_C}&\color{none}{=}
-\color{red}{W}\color{none}{+}
-\color{red}{H}\color{none}{+}
-(\color{red}{A}\color{none}{(\tau)}
-+\color{red}{\beta}\color{none}{)}\cdot
-r\color{none}{+}
-(\color{red}{B}\color{none}{(\tau)}
-+\color{red}{\alpha}\color{none}{)}\cdot
-t\color{none}{+}
-r\cdot t\cdot\color{red}{\delta}\color{none}{}
+\color{red}{\pi_C}&=
+\color{red}{W}+\color{red}{H}+
+(\color{red}{A}(\tau)+\color{red}{\beta})\cdot r
++(\color{red}{B}(\tau)+\color{red}{\alpha})\cdot t
++r\cdot t\cdot\color{red}{\delta}
 \end{aligned}
 $$
 
@@ -906,9 +771,7 @@ $$
 
 $$
 \pi = \{
-\color{red}{\pi_A}\color{none}{,}
-\color{blue}{\pi_B}\color{none}{,}
-\color{red}{\pi_C}\color{none}{}
+\color{red}{\pi_A},\color{blue}{\pi_B},\color{red}{\pi_C}
 \}
 $$
 
@@ -917,32 +780,25 @@ $$
 计算
 
 $$
-\color{red}{I}\color{none}{=}
-\frac{
-\color{red}{A_0}\color{none}{(\tau)}\cdot\beta
-+\color{red}{B_0}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_0}\color{none}{(\tau)}
-}{\gamma} \\
+\color{red}{I}=\frac{
+\color{red}{A_0}(\tau)\cdot\beta
++\color{red}{B_0}(\tau)\cdot\alpha
++\color{red}{C_0}(\tau)}{\gamma} \\
 +\sum_{j=1}^{n}
 I_j\cdot
 \frac{
-\color{red}{A_j}\color{none}{(\tau)}\cdot\beta
-+\color{red}{B_j}\color{none}{(\tau)}\cdot\alpha
-+\color{red}{C_j}\color{none}{(\tau)}
-}{\gamma}
+\color{red}{A_j}(\tau)\cdot\beta
++\color{red}{B_j}(\tau)\cdot\alpha
++\color{red}{C_j}(\tau)}{\gamma}
 $$
 
 验证
 
 $$
-\color{red}{\pi_A}\color{none}{\cdot}
-\color{blue}{\pi_B}\color{none}{=}
-\color{red}{\alpha}\color{none}{\cdot}
-\color{blue}{\beta}\color{none}{+}
-\color{red}{I}\color{none}{\cdot}
-\color{blue}{\gamma}\color{none}{+}
-\color{red}{\pi_C}\color{none}{\cdot}
-\color{blue}{\delta}\color{none}{}
+\color{red}{\pi_A}\cdot\color{blue}{\pi_B}
+=\color{red}{\alpha}\cdot\color{blue}{\beta}
++\color{red}{I}\cdot\color{blue}{\gamma}
++\color{red}{\pi_C}\cdot\color{blue}{\delta}
 $$
 
 验证消耗的时间只和公开输入数量有关，
